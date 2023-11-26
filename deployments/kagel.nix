@@ -68,6 +68,7 @@
     };
     windowManager.i3 = {
       enable = true;
+      configFile = ./../dotfiles/i3.conf;
       extraPackages = with pkgs; [
         dmenu
           i3status
@@ -95,7 +96,43 @@
   #   home.stateVersion = "23.05";
   # };
 
-  environment.systemPackages = import ./packages.nix { inherit pkgs; };
+  environment.systemPackages = import ./base-packages.nix { inherit pkgs; };
+  environment.variables = {
+    LC_ALL = "en_US.UTF-8";
+  };
+  fonts = {
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    fontconfig = {
+      enable = true;
+      allowBitmaps = true;
+      antialias = true;
+      hinting.enable = true;
+      includeUserConf = true;
+      defaultFonts = {
+        monospace = ["Fira Mono"];
+        sansSerif = ["Fira Sans"];
+        serif = ["DejaVu Serif"];
+      };
+    };
+
+    fonts = with pkgs; [
+      nerdfonts
+      font-awesome_5
+      iosevka-bin
+      iosevka
+
+      emojione
+      liberation_ttf
+      fira-code-symbols
+      dina-font
+      proggyfonts
+      fira-code
+      fira-mono
+      hasklig
+      wqy_zenhei
+    ];
+  };
   programs.zsh.enable = true;
 
   users.extraUsers.quentin = {

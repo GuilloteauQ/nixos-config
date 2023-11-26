@@ -2,12 +2,8 @@
 
 with pkgs; [
   home-manager
-  wget
-  vim
-  htop
   emacs
   tmux
-  git
   firefox
   docker
   thunderbird
@@ -17,14 +13,17 @@ with pkgs; [
   evince
   ghq
   helix
-  jq
   libreoffice
   neovim
   mattermost-desktop
   pavucontrol
   tree
   telegram-desktop
-  man-pages
   nixfmt
   gdb
+  gnome.eog
+  inkscape
+  xournalpp
+  yubikey-manager
+  yubioath-flutter
 ]

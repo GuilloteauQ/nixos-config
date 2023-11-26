@@ -13,31 +13,20 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      home-module = {
-        home = rec {
-          username = "quentin";
-          homeDirectory = "/home/${username}";
-          stateVersion = "23.05";
-        };
-      };
     in
     {
-      homeConfigurations = {
-        quentin = home-manager.lib.homeManagerConfiguration rec {
-          inherit pkgs;
-          modules = [
-            home-module
-            ./homes/quentin.nix
-          ];
-        };
-      };
-
        nixosConfigurations = {
         # Configuration for my current working machine.
         kagel = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./deployments/kagel.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.quentin = import ./homes/quentin.nix;
+            }
           ];
         };
        };

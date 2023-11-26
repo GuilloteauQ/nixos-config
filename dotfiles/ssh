@@ -1,0 +1,24 @@
+Host g5k
+    User qguilloteau
+    Hostname access.grid5000.fr
+    ForwardAgent no
+Host *.g5k
+    User qguilloteau
+    ProxyCommand ssh g5k -W "$(basename %h .g5k):%p"
+    ForwardAgent no
+Host kiwi
+    User pi
+    Hostname 192.168.0.16
+    ForwardAgent no
+Host ciment
+    User guillotq
+    Hostname access-ciment.ujf-grenoble.fr
+    ForwardAgent no
+Host *.ciment
+    User guillotq
+    ProxyCommand ssh -q guillotq@access-gricad.univ-grenoble-alpes.fr "nc -w 60 `basename %h .ciment` %p"
+    ForwardAgent no
+Host *.ci
+    ProxyCommand ssh qgui001@ci-ssh.inria.fr "/usr/bin/nc `basename %h .ci` %p"
+Host *
+  ServerAliveInterval 30

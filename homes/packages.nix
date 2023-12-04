@@ -1,29 +1,52 @@
 { pkgs }:
 
 with pkgs; [
-  home-manager
+  # home-manager
   emacs
   tmux
-  firefox
+  # firefox
   docker
-  thunderbird
+  # thunderbird
   alacritty
   arandr
   bat
   evince
   ghq
-  helix
-  libreoffice
+  # helix
+  # libreoffice
   neovim
-  mattermost-desktop
-  pavucontrol
+  # mattermost-desktop
+  # pavucontrol
   tree
   telegram-desktop
+  slack
   nixfmt
-  gdb
+  # gdb
   gnome.eog
   inkscape
   xournalpp
   yubikey-manager
-  yubioath-flutter
+  # yubioath-flutter
+
+  wget
+  vim
+  htop
+  tmux
+  # git
+  jq
+  # acpi
+  nerdfonts
+  font-awesome_5
+  iosevka-bin
+  iosevka
+  
+  #emojione
+  liberation_ttf
+  fira-code-symbols
+  dina-font
+  # proggyfonts
+  fira-code
+  fira-mono
+  hasklig
+  wqy_zenhei
 ]

@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
     ];
 
   nix = {
@@ -30,9 +30,9 @@
     # If using dhcpcd:
     dhcpcd.extraConfig = "nohook resolv.conf";
     # If using NetworkManager:
-    networkmanager.enable = true;
-    networkmanager.dns = "default";
-    networkmanager.insertNameservers = ["8.8.8.8" "8.8.4.4"];
+    # networkmanager.enable = true;
+    # networkmanager.dns = "default";
+    # networkmanager.insertNameservers = ["8.8.8.8" "8.8.4.4"];
   };
 
   time.timeZone = "Europe/Paris";

@@ -4,9 +4,11 @@
   ...
 }: {
 
+  # home.username = "guillo0001";
+  # home.homeDirectory = "/Users/guillo0001";
   home.username = "quentin";
   home.homeDirectory = "/home/quentin";
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
 
     programs.home-manager.enable = true;
    #  home.file.".config/i3/conf".text =

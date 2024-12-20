@@ -4,10 +4,10 @@
   ...
 }: {
 
-  # home.username = "guillo0001";
-  # home.homeDirectory = "/Users/guillo0001";
-  home.username = "quentin";
-  home.homeDirectory = "/home/quentin";
+  home.username = "guillo0001";
+  home.homeDirectory = "/Users/guillo0001";
+  #home.username = "quentin";
+  #home.homeDirectory = "/home/quentin";
     home.stateVersion = "23.11";
 
     programs.home-manager.enable = true;

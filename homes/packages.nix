@@ -1,8 +1,27 @@
 { pkgs }:
 
+let
+  emacs_with_packages = pkgs.emacs29.pkgs.withPackages (epkgs: (with epkgs.melpaStablePackages; [
+    magit
+    pdf-tools
+    evil
+    snakemake-mode
+    which-key
+]) ++ (with epkgs.melpaPackages; [
+    vterm
+    ess
+  ]));
+  config = ./config.el;
+  myEmacs = pkgs.writeShellScriptBin "emacs" ''
+    exec ${emacs_with_packages}/bin/emacs -q --load ${config} $@
+  '';
+in
+
 with pkgs; [
+  git-annex
   # home-manager
-  emacs
+  #emacs
+  myEmacs
   tmux
   # firefox
   docker
@@ -36,6 +55,7 @@ with pkgs; [
   jq
   # acpi
   nerdfonts
+  powerline-fonts
   font-awesome_5
   iosevka-bin
   iosevka

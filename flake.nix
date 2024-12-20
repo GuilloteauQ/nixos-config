@@ -2,9 +2,9 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/24.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-generators = {
@@ -22,10 +22,10 @@
         #nixpkgs.overlays = [self.overlays.default];
         nixpkgs.config.allowUnfree = true;
         home = rec {
-          # username = "guillo0001";
-          # homeDirectory = "/Users/${username}";
-          username = "quentin";
-          homeDirectory = "/home/${username}";
+           username = "guillo0001";
+           homeDirectory = "/Users/${username}";
+          #username = "quentin";
+          #homeDirectory = "/home/${username}";
           stateVersion = "23.11";
         };
       };
